@@ -7,12 +7,10 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 import uz.pdp.homework2.config.AuditingListener;
-import uz.pdp.homework2.entity.enums.CardType;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -54,4 +52,13 @@ public class Card {
 
     @CreationTimestamp
     private Timestamp creationTime;
+
+    public Card(String cardNumber, Bank bank, String ccv, Date expiredDate, String password, User user) {
+        this.cardNumber = cardNumber;
+        this.bank = bank;
+        this.ccv = ccv;
+        this.expiredDate = expiredDate;
+        this.password = password;
+        this.user = user;
+    }
 }

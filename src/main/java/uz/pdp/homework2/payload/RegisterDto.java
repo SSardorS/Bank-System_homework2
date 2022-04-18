@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class RegisterDto {
 
-    private String firtName;
+    private String firstName;
 
     private String lastName;
 

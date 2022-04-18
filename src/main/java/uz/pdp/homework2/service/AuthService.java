@@ -58,7 +58,7 @@ public class AuthService implements UserDetailsService {
             return new ApiResponse("This role is not found", false);
 
         User user = new User();
-        user.setFirstName(registerDto.getFirtName());
+        user.setFirstName(registerDto.getFirstName());
         user.setLastName(registerDto.getLastName());
         user.setEmail(registerDto.getEmail());
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
@@ -119,14 +119,14 @@ public class AuthService implements UserDetailsService {
     }
 
     public ApiResponse login(LoginDto loginDto) {
-        try {
+
             Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getEmail(), loginDto.getPassword()));
             User user = (User) authenticate.getPrincipal();
             String token = jwtProvider.generatedToken(user.getEmail(), user.getRoles());
-            return new ApiResponse("Token", true, token);
-        } catch (Exception e) {
+            boolean matches = passwordEncoder.matches(loginDto.getPassword(), user.getPassword());
+            if (matches)
+                return new ApiResponse("Token", true, token);
             return new ApiResponse("Parol yoki Login Hato", false);
-        }
     }
 
 
