@@ -53,12 +53,13 @@ public class Card {
     @CreationTimestamp
     private Timestamp creationTime;
 
-    public Card(String cardNumber, Bank bank, String ccv, Date expiredDate, String password, User user) {
+    public Card(String cardNumber, Bank bank, String ccv, Date expiredDate, String password, User user, String cardType) {
         this.cardNumber = cardNumber;
         this.bank = bank;
         this.ccv = ccv;
         this.expiredDate = expiredDate;
         this.password = password;
         this.user = user;
+        this.cardType=cardType;
     }
 }
