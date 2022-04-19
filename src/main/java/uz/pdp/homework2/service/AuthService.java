@@ -120,13 +120,15 @@ public class AuthService implements UserDetailsService {
 
     public ApiResponse login(LoginDto loginDto) {
 
-            Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getEmail(), loginDto.getPassword()));
-            User user = (User) authenticate.getPrincipal();
-            String token = jwtProvider.generatedToken(user.getEmail(), user.getRoles());
-            boolean matches = passwordEncoder.matches(loginDto.getPassword(), user.getPassword());
-            if (matches)
-                return new ApiResponse("Token", true, token);
-            return new ApiResponse("Parol yoki Login Hato", false);
+//            Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getEmail(), loginDto.getPassword()));
+//            User user = (User) authenticate.getPrincipal();
+
+        User user = (User) loadUserByUsername(loginDto.getEmail());
+        String token = jwtProvider.generatedToken(user.getEmail(), user.getRoles());
+        boolean matches = passwordEncoder.matches(loginDto.getPassword(), user.getPassword());
+        if (matches)
+            return new ApiResponse("Token", true, token);
+        return new ApiResponse("Parol yoki Login Hato", false);
     }
 
 

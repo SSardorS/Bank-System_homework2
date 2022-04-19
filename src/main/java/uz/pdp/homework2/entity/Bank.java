@@ -26,4 +26,7 @@ public class Bank {
 
     @OneToMany(mappedBy = "bank", cascade = CascadeType.ALL)
     private List<Card> card;
+
+    @OneToMany(mappedBy = "ownerBankomat", cascade = CascadeType.ALL)
+    private Set<Bankomat> bankomats;
 }
