@@ -20,19 +20,18 @@ public class Bankomat {
     private UUID id;
 
 
-    private String bankomatForCard;
-
-    private Double maxWithdraw;
-
     private UUID withDrawCardId;
 
-    @ManyToOne
-    private Bank ownerBankomat;
-
-    private double minnimumSumInBAnkomat;
+    private Double withdrawSum;
 
     @ManyToOne
-    private User responsiblePerson;
+    private BankomatResponsibleManager bankomatResponsibleManager;
+
+
+
+
+
+
 
 
 

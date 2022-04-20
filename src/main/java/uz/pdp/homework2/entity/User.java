@@ -64,6 +64,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Card> card;
 
+    @OneToMany(mappedBy = "responsibleManager", cascade = CascadeType.ALL)
+    private Set<BankomatResponsibleManager> bankomats;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

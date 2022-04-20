@@ -28,5 +28,5 @@ public class Bank {
     private List<Card> card;
 
     @OneToMany(mappedBy = "ownerBankomat", cascade = CascadeType.ALL)
-    private Set<Bankomat> bankomats;
+    private Set<BankomatResponsibleManager> bankomats;
 }

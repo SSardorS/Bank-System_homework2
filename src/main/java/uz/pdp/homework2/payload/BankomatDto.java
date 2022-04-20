@@ -3,21 +3,17 @@ package uz.pdp.homework2.payload;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import uz.pdp.homework2.entity.Bank;
 
-import java.util.Date;
 import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class CardDto {
+public class BankomatDto {
     private String cardNumber;
-    private UUID bankId;
-    private String ccv;
-    private String expiredDate;
     private String password;
-    private UUID userId;
-    private Double sum;
+    private Double withdrawSum;
+
+    private UUID bankomatResponsibleManagerId;
 
 }

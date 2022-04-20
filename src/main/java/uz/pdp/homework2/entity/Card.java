@@ -41,6 +41,8 @@ public class Card {
     @Column(nullable = false)
     private String cardType;
 
+    private Double sum;
+
     @CreatedBy
     private UUID cratedAt;
 
